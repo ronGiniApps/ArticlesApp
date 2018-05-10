@@ -17,16 +17,21 @@ class RegularArticleCellTableViewCell: UITableViewCell {
     @IBOutlet weak var articleAuthor    : UILabel!
     @IBOutlet weak var articleDate      : UILabel!
     @IBOutlet weak var cellView: UIView!
+    @IBOutlet weak var shareBtn: UIButton!
     
-    var url = ""
     
-    weak var delegate:ShareProtocol?
-    
-    //MARKS: - Actions
     @IBAction func shareArticleAction(_ sender: UIButton) {
-        delegate?.share(url)
+        //NotificationCenter.default.post(name: NSNotification.Name(rawValue: "shareArticle"), object: nil,)
+        NotificationCenter.default.post(name:  NSNotification.Name(rawValue: "shareArticle"), object: nil, userInfo: ["button" : sender])
+        
     }
     
+    //MARK: - Properties
+    var url = ""
+    
+    weak var shareDelegate:ShareDelegate?
+    
+   
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -147,8 +147,8 @@
 		9B51455720A2DACF00ED7A56 /* generators */ = {
 			isa = PBXGroup;
 			children = (
-				9B51455A20A2DF4D00ED7A56 /* ArticleCellGenerator.swift */,
 				9B51455C20A2DF5A00ED7A56 /* StripCellGenerator.swift */,
+				9B51455A20A2DF4D00ED7A56 /* ArticleCellGenerator.swift */,
 			);
 			path = generators;
 			sourceTree = "<group>";

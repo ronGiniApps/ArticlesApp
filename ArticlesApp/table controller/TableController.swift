@@ -10,12 +10,16 @@ import UIKit
 
 class TableController:NSObject
 {
+    //MARK: - Properties
     var dataController:DataControllerProtocol!
     
     init(delegateToViewController:DataControllerDelegate)
     {
+        super.init()
+        
         dataController = DataController(delegate: delegateToViewController)
-
+        
+        
     }
 }
 
@@ -36,11 +40,12 @@ extension TableController: UITableViewDataSource
         StripCellGenerator.registerReuseIdentifier(for: tableView)
 
         let object = dataController.objectForIndexPath(indexPath)
+        
         if object.type == .regularArticleCell
         {
             let cell = ArticleCellGenerator.cell(for: indexPath, inTableVIew: tableView)
-         
             ArticleCellGenerator.configure(cell: cell, by:object )
+            
             return cell
         }
         else if object.type == .everyThirdCell
@@ -69,24 +74,11 @@ extension TableController: UITableViewDataSource
     }
 }
 
-extension TableController
-{
-//    func share(_ sender: String, indexPath: IndexPath) -> String {
-//
-//    }
-//
-    
-}
-
 
 //MARK: TableControllerProtocol
 extension TableController: TableControllerProtocol
 {
     
+ 
 }
 
-extension TableController
-{
-    
-    
-}

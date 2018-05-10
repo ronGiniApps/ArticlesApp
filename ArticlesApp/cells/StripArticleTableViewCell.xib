@@ -67,7 +67,7 @@
                                 <rect key="frame" x="13.5" y="177.5" width="24" height="24"/>
                                 <state key="normal" image="share_btn"/>
                                 <connections>
-                                    <action selector="shareArticleAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="O6s-eG-NJ6"/>
+                                    <action selector="shareArticleAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="stC-NX-nkP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -115,6 +115,7 @@
                 <outlet property="articleSubtitle" destination="eNb-y3-qVH" id="N8w-2y-vjk"/>
                 <outlet property="articleTitle" destination="ugK-qM-TZT" id="AWT-i6-eZO"/>
                 <outlet property="cellView" destination="f7k-Ci-6gN" id="rZr-vp-Jcp"/>
+                <outlet property="shareBtn" destination="Dez-0L-W4u" id="XEC-M3-Ewc"/>
             </connections>
             <point key="canvasLocation" x="187.5" y="38"/>
         </tableViewCell>

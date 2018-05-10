@@ -17,15 +17,14 @@ class StripArticleTableViewCell: UITableViewCell {
     @IBOutlet weak var articleAuthor    : UILabel!
     @IBOutlet weak var articleDate      : UILabel!
     @IBOutlet weak var cellView: UIView!
+    @IBOutlet weak var shareBtn: UIButton!
     
     var url =  ""
     
-    weak var delegate:ShareProtocol?
+    weak var delegate:ShareDelegate?
 
-    
-    //MARKS: - Actions
     @IBAction func shareArticleAction(_ sender: UIButton) {
-        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "shareArticle"), object: nil)
     }
     
     

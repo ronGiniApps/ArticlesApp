@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ShareProtocol:class
+protocol ShareDelegate:class
 {
-    func share(_ sender: String)->String
+    func shareArticle(_ sender: Any?)
 }

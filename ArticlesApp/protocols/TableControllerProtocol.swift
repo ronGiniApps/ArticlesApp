@@ -9,5 +9,5 @@
 import UIKit
 
 protocol TableControllerProtocol:UITableViewDelegate,UITableViewDataSource{
-   
+    
 }

@@ -26,9 +26,8 @@ class ArticleCellGenerator: CellGeneretorPotocol {
         cell.articleTitle.text          = article.title
         cell.articleSubTitle.text       = article.subTitle
         cell.articleAuthor.text         = article.author
-        
         cell.articleImage.sd_setImage(with: URL(string: article.imgUrl!), placeholderImage: #imageLiteral(resourceName: "image_place_holder"), options: [], completed: nil)
-        
+        cell.url                        = article.url!
     }
     
 }

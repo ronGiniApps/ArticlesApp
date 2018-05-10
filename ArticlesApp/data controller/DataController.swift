@@ -41,14 +41,13 @@ extension DataController
         return indexPath.row
     }
     
-
     
     func objectForIndexPath(_ indexPath: IndexPath) -> Article
     {
         return (newArticles?[indexPath.row])!
     }
     
-    
+
     
     func numberOfRowsInSection(_ section: Int) -> Int
     {
