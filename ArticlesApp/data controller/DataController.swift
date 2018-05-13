@@ -12,8 +12,8 @@ class DataController
 {
     
     //MARK: - Propeties
-    weak var delegate:DataControllerDelegate?
-    var newArticles : [Article]?
+    weak var delegate   :DataControllerDelegate?
+    var newArticles     : [Article]?
     
     init(delegate:DataControllerDelegate)
     {
@@ -25,7 +25,8 @@ class DataController
 //MARK: - Actions
 extension DataController
 {
-    func fetchData(){
+    func fetchData()
+    {
         NetworkService.fetchArticles { (articles) in
             self.newArticles = articles
             self.delegate?.refreshUI()
@@ -36,8 +37,14 @@ extension DataController
 //MARK: - DataControllerProtocol
  extension DataController:DataControllerProtocol
  {
+    func didSelectRowAt(_ tablView: UITableView, indexPath: IndexPath) -> Int
+    {
+        return indexPath.row
+    }
     
-    func heightForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> Int {
+    
+    func heightForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> Int
+    {
         return indexPath.row
     }
     

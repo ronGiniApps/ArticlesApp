@@ -10,8 +10,9 @@ import UIKit
 
 let shareNotificaition = "share_article"
 
+
 class ViewController: UIViewController{
-    
+
     //MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     
@@ -44,22 +45,28 @@ class ViewController: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
+    
     @objc func notificationShare(_ notification: NSNotification) {
-        let sender = notification.userInfo!["button"] as? UIButton
         
-        
+        let sender              = notification.userInfo!["button"] as? UIButton
         let buttonPosition      = sender!.convert(CGPoint.zero, to:self.tableView)
         let indexPath           = self.tableView.indexPathForRow(at: buttonPosition)
+        var row                 = indexPath![1] + 1
         
-        
-        let cell                = tableView.cellForRow(at: indexPath!)
-    
-        //let object = dataController.objectForIndexPath(indexPath!)
-        
-        
-        
-        
-
+        if row % 3 == 0
+        {
+            let cell  = tableView.cellForRow(at: indexPath!) as? StripArticleTableViewCell
+            print("third cell")
+            share(url: (cell?.url)!)
+        }
+        else
+        {
+            row     = row - (row/3)
+            row    -= 1
+            let cell  = tableView.cellForRow(at: indexPath!) as? RegularArticleCellTableViewCell
+            print("regular cell")
+            share(url: (cell?.url)!)
+        }
     }
 }
 
@@ -73,6 +80,19 @@ extension ViewController : DataControllerDelegate
         }
     }
 }
+
+extension ViewController
+{
+    func share(url:String) {
+            let url                                         = url
+            let text                                        = "Hey look at this article!:\(url)"
+            let shareAll                                    = [text]
+            let activityViewController                      = UIActivityViewController(activityItems: shareAll, applicationActivities: nil)
+            activityViewController.excludedActivityTypes    = [UIActivityType.airDrop, UIActivityType.postToFacebook,UIActivityType.mail,UIActivityType.message,UIActivityType.openInIBooks]
+            self.present(activityViewController, animated: true, completion: nil)
+    }
+}
+
 
 
 

@@ -16,10 +16,7 @@ class TableController:NSObject
     init(delegateToViewController:DataControllerDelegate)
     {
         super.init()
-        
         dataController = DataController(delegate: delegateToViewController)
-        
-        
     }
 }
 
@@ -38,7 +35,7 @@ extension TableController: UITableViewDataSource
     {
         ArticleCellGenerator.registerReuseIdentifier(for: tableView)
         StripCellGenerator.registerReuseIdentifier(for: tableView)
-
+        
         let object = dataController.objectForIndexPath(indexPath)
         
         if object.type == .regularArticleCell
@@ -52,6 +49,7 @@ extension TableController: UITableViewDataSource
         {
             let cell = StripCellGenerator.cell(for: indexPath, inTableVIew: tableView)
             StripCellGenerator.configure(cell: cell, by:object )
+            
             return cell
         }
         return UITableViewCell()
@@ -67,10 +65,15 @@ extension TableController: UITableViewDataSource
         }
         else
         {
-            row  = row - (row/3)
+            row   = row - (row/3)
             row  -= 1
             return 300
         }
+    }
+    //MARK: - DidSelectRowAtIndexPath
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let row = dataController.didSelectRowAt(tableView, indexPath: indexPath)
+        
     }
 }
 
@@ -79,6 +82,6 @@ extension TableController: UITableViewDataSource
 extension TableController: TableControllerProtocol
 {
     
- 
+    
 }
 

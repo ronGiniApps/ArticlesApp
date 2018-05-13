@@ -13,5 +13,6 @@ protocol DataControllerProtocol
     func objectForIndexPath(_ indexPath: IndexPath) -> Article
     func numberOfRowsInSection(_ section: Int)-> Int
     func heightForRowAt(_ tableView: UITableView,  indexPath: IndexPath) -> Int
-    //func didSelectRowAt(_ tablView: UIWebView,indexPath: IndexPath)-> Int
+    func didSelectRowAt(_ tablView: UITableView,indexPath: IndexPath)-> Int
 }
+

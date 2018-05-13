@@ -24,7 +24,7 @@ class StripArticleTableViewCell: UITableViewCell {
     weak var delegate:ShareDelegate?
 
     @IBAction func shareArticleAction(_ sender: UIButton) {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "shareArticle"), object: nil)
+        NotificationCenter.default.post(name:  NSNotification.Name(rawValue: "shareArticle"), object: nil, userInfo: ["button" : sender])
     }
     
     

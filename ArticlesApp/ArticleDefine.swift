@@ -17,7 +17,6 @@ import UIKit
             
             case everyThirdCell
             case regularArticleCell
-            
         }
     }
 
