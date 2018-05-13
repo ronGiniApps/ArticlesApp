@@ -12,6 +12,7 @@ class TableController:NSObject
 {
     //MARK: - Properties
     var dataController:DataControllerProtocol!
+    var webKit:ArticleWebKitProtocol!
     
     init(delegateToViewController:DataControllerDelegate)
     {
@@ -72,8 +73,8 @@ extension TableController: UITableViewDataSource
     }
     //MARK: - DidSelectRowAtIndexPath
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let row = dataController.didSelectRowAt(tableView, indexPath: indexPath)
-        
+        dataController.didSelectRowAt(tableView, indexPath: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
@@ -84,4 +85,9 @@ extension TableController: TableControllerProtocol
     
     
 }
+
+
+
+
+
 

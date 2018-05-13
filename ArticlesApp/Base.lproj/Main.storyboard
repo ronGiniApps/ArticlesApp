@@ -20,9 +20,8 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rzo-NZ-DOG">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="separatorColor" red="0.79715835499999999" green="0.79715835499999999" blue="0.79715835499999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="sectionIndexBackgroundColor" red="0.79715835499999999" green="0.79715835499999999" blue="0.79715835499999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.79715835499999999" green="0.79715835499999999" blue="0.79715835499999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.9058790085532995" green="0.9058790085532995" blue="0.9058790085532995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" id="1lu-x9-9gG">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="37"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -30,7 +29,7 @@
                                 </activityIndicatorView>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.79715835499999999" green="0.79715835499999999" blue="0.79715835499999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="rzo-NZ-DOG" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="cdC-TH-TWA"/>
                             <constraint firstItem="rzo-NZ-DOG" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="cda-nQ-v0H"/>
@@ -41,24 +40,25 @@
                     </view>
                     <navigationItem key="navigationItem" title="ArticlesApp" id="4uh-1y-F0e"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="1lu-x9-9gG" id="npo-KQ-jgc"/>
                         <outlet property="tableView" destination="rzo-NZ-DOG" id="4VC-gb-5NC"/>
-                        <segue destination="Ifg-PZ-kBK" kind="show" id="eBK-cg-o4z"/>
+                        <segue destination="o98-OO-W8K" kind="show" identifier="webarticlesegue" id="Hi4-HC-A7w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="988" y="133"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="bn6-Cp-rnA">
+        <!--Web Kit Controller-->
+        <scene sceneID="a74-Dt-pKw">
             <objects>
-                <viewController id="Ifg-PZ-kBK" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Agw-6U-l4r">
+                <viewController id="o98-OO-W8K" customClass="WebKitController" customModule="ArticlesApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Rs-eO-BgD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mum-A3-nvR">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SJp-v4-X9q">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -68,17 +68,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="mum-A3-nvR" firstAttribute="leading" secondItem="eHA-AP-cA2" secondAttribute="leading" id="5y2-6A-Fve"/>
-                            <constraint firstItem="eHA-AP-cA2" firstAttribute="trailing" secondItem="mum-A3-nvR" secondAttribute="trailing" id="DSE-N7-xML"/>
-                            <constraint firstItem="eHA-AP-cA2" firstAttribute="bottom" secondItem="mum-A3-nvR" secondAttribute="bottom" id="NGx-NV-Dpt"/>
-                            <constraint firstItem="mum-A3-nvR" firstAttribute="top" secondItem="eHA-AP-cA2" secondAttribute="top" id="b8e-9X-leH"/>
+                            <constraint firstItem="GGV-As-QHR" firstAttribute="trailing" secondItem="SJp-v4-X9q" secondAttribute="trailing" id="0Uh-GO-kL7"/>
+                            <constraint firstItem="SJp-v4-X9q" firstAttribute="top" secondItem="1Rs-eO-BgD" secondAttribute="top" id="NCC-CF-G7Y"/>
+                            <constraint firstItem="SJp-v4-X9q" firstAttribute="leading" secondItem="GGV-As-QHR" secondAttribute="leading" id="PlL-ez-Oo9"/>
+                            <constraint firstItem="SJp-v4-X9q" firstAttribute="bottom" secondItem="GGV-As-QHR" secondAttribute="bottom" id="fgh-sy-Lyc"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="eHA-AP-cA2"/>
+                        <viewLayoutGuide key="safeArea" id="GGV-As-QHR"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4eX-ZS-luB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="caT-T7-3Qt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1686" y="133"/>
+            <point key="canvasLocation" x="1694" y="133"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IyX-WF-6IH">

@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 let shareNotificaition = "share_article"
 
 
@@ -15,27 +16,32 @@ class ViewController: UIViewController{
 
     //MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     
     //MARK: - Properties
-    var tableController:TableControllerProtocol?
+    var tableController     :   TableControllerProtocol?
+    var dataController      :   DataControllerProtocol!
+    var webController       :   ArticleWebKitProtocol!
+    weak var shareDelegate  :   ShareDelegate?
+
     
-    weak var shareDelegate:ShareDelegate?
-    var dataController:DataControllerProtocol!
-    
-    deinit {
+    deinit
+    {
         NotificationCenter.default.removeObserver(self)
     }
     
+    //MARK: - ViewWillLayoutSubviews
     override func viewWillLayoutSubviews() {
         
-        tableController         = TableController(delegateToViewController: self)
-        tableView.delegate      = tableController
-        tableView.dataSource    = tableController
+        tableController         =   TableController(delegateToViewController: self)
+        tableView.delegate      =   tableController
+        tableView.dataSource    =   tableController
     }
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        
         NotificationCenter.default.addObserver(self, selector: #selector(notificationShare), name: NSNotification.Name(rawValue: "shareArticle"), object: nil)
 
     }
@@ -48,21 +54,22 @@ class ViewController: UIViewController{
     
     @objc func notificationShare(_ notification: NSNotification) {
         
-        let sender              = notification.userInfo!["button"] as? UIButton
-        let buttonPosition      = sender!.convert(CGPoint.zero, to:self.tableView)
-        let indexPath           = self.tableView.indexPathForRow(at: buttonPosition)
-        var row                 = indexPath![1] + 1
+        let sender              =   notification.userInfo!["button"] as? UIButton
+        let buttonPosition      =   sender!.convert(CGPoint.zero, to:self.tableView)
+        let indexPath           =   self.tableView.indexPathForRow(at: buttonPosition)
+        var row                 =   indexPath![1] + 1
         
         if row % 3 == 0
         {
             let cell  = tableView.cellForRow(at: indexPath!) as? StripArticleTableViewCell
             print("third cell")
             share(url: (cell?.url)!)
+            
         }
         else
         {
-            row     = row - (row/3)
-            row    -= 1
+            row       = row - (row/3)
+            row      -= 1
             let cell  = tableView.cellForRow(at: indexPath!) as? RegularArticleCellTableViewCell
             print("regular cell")
             share(url: (cell?.url)!)
@@ -73,16 +80,32 @@ class ViewController: UIViewController{
 //MARK: - Actions
 extension ViewController : DataControllerDelegate
 {
+    //MARK: - PrepareForSegue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destVC : WebKitController  = segue.destination as? WebKitController
+        {
+            let url                       = sender as? String
+            destVC.url                    = url
+        }
+    }
+    
+    //MARK: - RefreshUI
     func refreshUI()
     {
-        DispatchQueue.main.async {
+        DispatchQueue.main.async
+        {
             self.tableView.reloadData()
+            self.activityIndicator.stopAnimating()
+            
         }
     }
 }
 
+
 extension ViewController
 {
+    //MARK: - Share
     func share(url:String) {
             let url                                         = url
             let text                                        = "Hey look at this article!:\(url)"
@@ -91,9 +114,8 @@ extension ViewController
             activityViewController.excludedActivityTypes    = [UIActivityType.airDrop, UIActivityType.postToFacebook,UIActivityType.mail,UIActivityType.message,UIActivityType.openInIBooks]
             self.present(activityViewController, animated: true, completion: nil)
     }
+    
 }
-
-
 
 
 
