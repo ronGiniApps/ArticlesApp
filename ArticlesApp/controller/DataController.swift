@@ -13,6 +13,7 @@ class DataController
     
     //MARK: - Propeties
     weak var delegate   :DataControllerDelegate?
+    var webKitDelegate  :ArticleWebKitProtocol?
     var newArticles     : [Article]?
     
     init(delegate:DataControllerDelegate)
@@ -37,9 +38,9 @@ extension DataController
 //MARK: - DataControllerProtocol
  extension DataController:DataControllerProtocol
  {
-    func didSelectRowAt(_ tablView: UITableView, indexPath: IndexPath) -> Int
-    {
-        return indexPath.row
+    func didSelectRowAt(_ tablView: UITableView, indexPath: IndexPath) {
+        let url = newArticles?[indexPath.row].url
+        delegate?.performSegue(withIdentifier: "webarticlesegue", sender: url)
     }
     
     

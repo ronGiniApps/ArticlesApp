@@ -35,8 +35,11 @@
 		9B9937BE20A1E6770093C06D /* ArticleDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9937BD20A1E6770093C06D /* ArticleDefine.swift */; };
 		9B9937C020A1E7370093C06D /* Typable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9937BF20A1E7370093C06D /* Typable.swift */; };
 		9B9937C320A2C21E0093C06D /* ArticlesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9937C220A2C21E0093C06D /* ArticlesProvider.swift */; };
-		9BD2192120A31F42003603E4 /* ArticleWebkitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD2192020A31F42003603E4 /* ArticleWebkitView.swift */; };
 		9BD2192320A31FA3003603E4 /* ShareProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD2192220A31FA3003603E4 /* ShareProtocol.swift */; };
+		9BF1F15620A818D400A398A8 /* ArticleWebKitProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF1F15520A818D400A398A8 /* ArticleWebKitProtocol.swift */; };
+		9BF1F15A20A8219600A398A8 /* WebKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF1F15920A8219600A398A8 /* WebKitController.swift */; };
+		9BF1F15D20A83FD800A398A8 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF1F15C20A83FD800A398A8 /* Date.swift */; };
+		9BF1F15F20A8511900A398A8 /* DateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF1F15E20A8511900A398A8 /* DateProtocol.swift */; };
 		9F8F783D3CD1AAF6D6A4CAF2 /* Pods_ArticlesApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB04DEC51971012DD516FC16 /* Pods_ArticlesApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -96,8 +99,11 @@
 		9B9937BD20A1E6770093C06D /* ArticleDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDefine.swift; sourceTree = "<group>"; };
 		9B9937BF20A1E7370093C06D /* Typable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typable.swift; sourceTree = "<group>"; };
 		9B9937C220A2C21E0093C06D /* ArticlesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesProvider.swift; sourceTree = "<group>"; };
-		9BD2192020A31F42003603E4 /* ArticleWebkitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleWebkitView.swift; sourceTree = "<group>"; };
 		9BD2192220A31FA3003603E4 /* ShareProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareProtocol.swift; sourceTree = "<group>"; };
+		9BF1F15520A818D400A398A8 /* ArticleWebKitProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleWebKitProtocol.swift; sourceTree = "<group>"; };
+		9BF1F15920A8219600A398A8 /* WebKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebKitController.swift; sourceTree = "<group>"; };
+		9BF1F15C20A83FD800A398A8 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		9BF1F15E20A8511900A398A8 /* DateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateProtocol.swift; sourceTree = "<group>"; };
 		A8674A0022647B60DF753D36 /* Pods-ArticlesApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArticlesApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArticlesApp/Pods-ArticlesApp.release.xcconfig"; sourceTree = "<group>"; };
 		AB04DEC51971012DD516FC16 /* Pods_ArticlesApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArticlesApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F07108FB694613597A4F7CEB /* Pods-ArticlesAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArticlesAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArticlesAppTests/Pods-ArticlesAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -178,7 +184,7 @@
 		9B99376D20A1A6E60093C06D /* ArticlesApp */ = {
 			isa = PBXGroup;
 			children = (
-				9BD2191F20A31F11003603E4 /* webview */,
+				9BF1F15B20A83FC100A398A8 /* extensions */,
 				9B51455720A2DACF00ED7A56 /* generators */,
 				9B9937C120A2C09B0093C06D /* services */,
 				9B9937BA20A1C7C00093C06D /* delegates */,
@@ -186,9 +192,7 @@
 				9B9937A420A1A83D0093C06D /* objects */,
 				9B9937A120A1A7E90093C06D /* parser */,
 				9B9937A020A1A7C50093C06D /* cells */,
-				9B99379F20A1A73E0093C06D /* view controller */,
-				9B99379E20A1A72F0093C06D /* data controller */,
-				9B99379D20A1A70B0093C06D /* table controller */,
+				9B99379F20A1A73E0093C06D /* controller */,
 				9B99379C20A1A6F80093C06D /* protocols */,
 				9B99376E20A1A6E60093C06D /* AppDelegate.swift */,
 				9B99377220A1A6E60093C06D /* Main.storyboard */,
@@ -227,32 +231,21 @@
 				9B9937B820A1B8F60093C06D /* DataControllerProtocol.swift */,
 				9B51455E20A2DFCA00ED7A56 /* CellGeneretorPotocol.swift */,
 				9BD2192220A31FA3003603E4 /* ShareProtocol.swift */,
+				9BF1F15520A818D400A398A8 /* ArticleWebKitProtocol.swift */,
+				9BF1F15E20A8511900A398A8 /* DateProtocol.swift */,
 			);
 			path = protocols;
 			sourceTree = "<group>";
 		};
-		9B99379D20A1A70B0093C06D /* table controller */ = {
-			isa = PBXGroup;
-			children = (
-				9B9937B420A1B8560093C06D /* TableController.swift */,
-			);
-			path = "table controller";
-			sourceTree = "<group>";
-		};
-		9B99379E20A1A72F0093C06D /* data controller */ = {
-			isa = PBXGroup;
-			children = (
-				9B9937B220A1B8490093C06D /* DataController.swift */,
-			);
-			path = "data controller";
-			sourceTree = "<group>";
-		};
-		9B99379F20A1A73E0093C06D /* view controller */ = {
+		9B99379F20A1A73E0093C06D /* controller */ = {
 			isa = PBXGroup;
 			children = (
 				9B99377020A1A6E60093C06D /* ViewController.swift */,
+				9B9937B220A1B8490093C06D /* DataController.swift */,
+				9B9937B420A1B8560093C06D /* TableController.swift */,
+				9BF1F15920A8219600A398A8 /* WebKitController.swift */,
 			);
-			path = "view controller";
+			path = controller;
 			sourceTree = "<group>";
 		};
 		9B9937A020A1A7C50093C06D /* cells */ = {
@@ -306,12 +299,12 @@
 			path = services;
 			sourceTree = "<group>";
 		};
-		9BD2191F20A31F11003603E4 /* webview */ = {
+		9BF1F15B20A83FC100A398A8 /* extensions */ = {
 			isa = PBXGroup;
 			children = (
-				9BD2192020A31F42003603E4 /* ArticleWebkitView.swift */,
+				9BF1F15C20A83FD800A398A8 /* Date.swift */,
 			);
-			path = webview;
+			path = extensions;
 			sourceTree = "<group>";
 		};
 		E4FCD792B13EE42ABDC6B86A /* Frameworks */ = {
@@ -536,11 +529,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BF1F15D20A83FD800A398A8 /* Date.swift in Sources */,
 				9B51455B20A2DF4D00ED7A56 /* ArticleCellGenerator.swift in Sources */,
 				9B9937B920A1B8F60093C06D /* DataControllerProtocol.swift in Sources */,
 				9B51455F20A2DFCA00ED7A56 /* CellGeneretorPotocol.swift in Sources */,
-				9BD2192120A31F42003603E4 /* ArticleWebkitView.swift in Sources */,
 				9B9937A620A1A8630093C06D /* Article.swift in Sources */,
+				9BF1F15A20A8219600A398A8 /* WebKitController.swift in Sources */,
 				9B99377120A1A6E60093C06D /* ViewController.swift in Sources */,
 				9B9937BE20A1E6770093C06D /* ArticleDefine.swift in Sources */,
 				9B9937A920A1A8B00093C06D /* NetworkService.swift in Sources */,
@@ -548,10 +542,12 @@
 				9B9937B720A1B8D20093C06D /* TableControllerProtocol.swift in Sources */,
 				9B99376F20A1A6E60093C06D /* AppDelegate.swift in Sources */,
 				9B9937A320A1A80D0093C06D /* ArticlesParser.swift in Sources */,
+				9BF1F15F20A8511900A398A8 /* DateProtocol.swift in Sources */,
 				9B51456120A2E12800ED7A56 /* CellInfoable.swift in Sources */,
 				9B9937C020A1E7370093C06D /* Typable.swift in Sources */,
 				9B9937BC20A1C7F20093C06D /* DataControllerDelegate.swift in Sources */,
 				9B9937B320A1B8490093C06D /* DataController.swift in Sources */,
+				9BF1F15620A818D400A398A8 /* ArticleWebKitProtocol.swift in Sources */,
 				9B9937C320A2C21E0093C06D /* ArticlesProvider.swift in Sources */,
 				9B9937AC20A1AB2D0093C06D /* RegularArticleCellTableViewCell.swift in Sources */,
 				9B51455D20A2DF5A00ED7A56 /* StripCellGenerator.swift in Sources */,

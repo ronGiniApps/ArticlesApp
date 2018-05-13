@@ -11,4 +11,6 @@ import UIKit
 protocol DataControllerDelegate:class
 {
     func refreshUI()
+    func performSegue(withIdentifier identifier: String, sender: Any?)
+    func prepare(for segue: UIStoryboardSegue, sender: Any?)
 }
