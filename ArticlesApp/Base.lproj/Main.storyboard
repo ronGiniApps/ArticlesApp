@@ -22,25 +22,44 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" red="0.79715835499999999" green="0.79715835499999999" blue="0.79715835499999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.9058790085532995" green="0.9058790085532995" blue="0.9058790085532995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" id="1lu-x9-9gG">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="37"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </activityIndicatorView>
                             </tableView>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LqF-lI-FJ3">
+                                <rect key="frame" x="0.0" y="64" width="250" height="603"/>
+                                <color key="backgroundColor" red="1" green="0.99367458806535969" blue="0.86004058044880016" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="mcS-6r-NED"/>
+                                </constraints>
+                            </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="PbO-76-lvP">
+                                <rect key="frame" x="169" y="347" width="37" height="37"/>
+                                <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.79715835499999999" green="0.79715835499999999" blue="0.79715835499999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="LqF-lI-FJ3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="-250" id="CyM-Jb-ciF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LqF-lI-FJ3" secondAttribute="bottom" id="Dco-Sb-uzP"/>
+                            <constraint firstItem="PbO-76-lvP" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Jix-oM-rYx"/>
                             <constraint firstItem="rzo-NZ-DOG" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="cdC-TH-TWA"/>
                             <constraint firstItem="rzo-NZ-DOG" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="cda-nQ-v0H"/>
+                            <constraint firstItem="PbO-76-lvP" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="kmH-m3-brC"/>
                             <constraint firstItem="rzo-NZ-DOG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="mgl-Li-TzR"/>
                             <constraint firstItem="rzo-NZ-DOG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uzW-sR-VY0"/>
+                            <constraint firstItem="LqF-lI-FJ3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="vkG-84-eIf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="ArticlesApp" id="4uh-1y-F0e"/>
+                    <navigationItem key="navigationItem" title="ArticlesApp" id="4uh-1y-F0e">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="weF-IJ-QhL">
+                            <connections>
+                                <action selector="openCloseRightMenu:" destination="BYZ-38-t0r" id="s9Q-GT-1pb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="activityIndicator" destination="1lu-x9-9gG" id="npo-KQ-jgc"/>
+                        <outlet property="activityIndicator" destination="PbO-76-lvP" id="2XV-Bu-ed6"/>
+                        <outlet property="menuLeadingConstraint" destination="CyM-Jb-ciF" id="QDE-go-hyK"/>
+                        <outlet property="rightMenu" destination="LqF-lI-FJ3" id="NoQ-37-xhQ"/>
                         <outlet property="tableView" destination="rzo-NZ-DOG" id="4VC-gb-5NC"/>
                         <segue destination="o98-OO-W8K" kind="show" identifier="webarticlesegue" id="Hi4-HC-A7w"/>
                     </connections>
@@ -99,4 +118,7 @@
             <point key="canvasLocation" x="218" y="133"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menu" width="24" height="24"/>
+    </resources>
 </document>

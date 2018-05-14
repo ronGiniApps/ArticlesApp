@@ -15,17 +15,24 @@ let shareNotificaition = "share_article"
 class ViewController: UIViewController{
 
     //MARK: - Outlets
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var tableView                : UITableView!
+    @IBOutlet weak var activityIndicator        : UIActivityIndicatorView!
+    @IBOutlet weak var menuLeadingConstraint    : NSLayoutConstraint!
+    @IBOutlet weak var rightMenu                : UIView!
     
+    @IBAction func openCloseRightMenu(_ sender: UIBarButtonItem)
+    {
+        openCloseRightMenu()
+    }
     
     //MARK: - Properties
     var tableController     :   TableControllerProtocol?
     var dataController      :   DataControllerProtocol!
     var webController       :   ArticleWebKitProtocol!
     weak var shareDelegate  :   ShareDelegate?
+    var isMenuOpen          =   false
 
-    
+
     deinit
     {
         NotificationCenter.default.removeObserver(self)
@@ -97,16 +104,15 @@ extension ViewController : DataControllerDelegate
         {
             self.tableView.reloadData()
             self.activityIndicator.stopAnimating()
-            
         }
     }
 }
 
-
+//MARK: - Share
 extension ViewController
 {
-    //MARK: - Share
-    func share(url:String) {
+    func share(url:String)
+    {
             let url                                         = url
             let text                                        = "Hey look at this article!:\(url)"
             let shareAll                                    = [text]
@@ -114,8 +120,37 @@ extension ViewController
             activityViewController.excludedActivityTypes    = [UIActivityType.airDrop, UIActivityType.postToFacebook,UIActivityType.mail,UIActivityType.message,UIActivityType.openInIBooks]
             self.present(activityViewController, animated: true, completion: nil)
     }
-    
 }
+
+
+//MARK: - OpenClocseRightMenu
+extension ViewController
+{
+    func openCloseRightMenu()
+    {
+        if isMenuOpen
+        {
+  
+            UIView.animate(withDuration: 0.3) {
+                self.menuLeadingConstraint.constant         -= self.rightMenu.frame.width
+                self.rightMenu.layer.shadowOpacity           = 0
+                self.rightMenu.layer.shadowRadius            = 0
+                self.view.layoutIfNeeded()
+            }
+        }
+        else
+        {
+            UIView.animate(withDuration: 0.3) {
+                self.menuLeadingConstraint.constant         += self.rightMenu.frame.width
+                self.rightMenu.layer.shadowOpacity           = 1
+                self.rightMenu.layer.shadowRadius            = 6
+                self.view.layoutIfNeeded()
+            }
+        }
+        isMenuOpen = !isMenuOpen
+    }
+}
+
 
 
 
