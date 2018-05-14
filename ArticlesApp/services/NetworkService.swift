@@ -8,10 +8,11 @@
 
 import UIKit
 
-class NetworkService: NSObject {
+class NetworkService{
     
     //MARK: - fetchArticles
-    static func fetchArticles(completion:@escaping ([Article])->()){
+    static func fetchArticles(completion:@escaping ([Article])->())
+    {
         ArticlesProvider.getArticles { (jsonObject) in
             ArticlesParser.parseArticles(jsonObject: jsonObject, completion: { (articles) in
                 completion(articles)

@@ -10,18 +10,24 @@ import UIKit
 import SDWebImage
 
 
-class ArticleCellGenerator: CellGeneretorPotocol {
+class ArticleCellGenerator: CellGeneretorPotocol
+{
     
-    //MARK: - Actions
-    static func cell(for indexPath: IndexPath, inTableVIew tableView: UITableView) -> UITableViewCell {
+    //MARKS: - CellForRow
+    static func cell(for indexPath: IndexPath, inTableVIew tableView: UITableView) -> UITableViewCell
+    {
         return tableView.dequeueReusableCell(withIdentifier:RegularArticleCellTableViewCell.cellID , for:indexPath  )
     }
     
-    static func registerReuseIdentifier(for tableView: UITableView) {
+    //MARKS: - RegisterIdentifier
+    static func registerReuseIdentifier(for tableView: UITableView)
+    {
         tableView.register(RegularArticleCellTableViewCell.cellNib, forCellReuseIdentifier: RegularArticleCellTableViewCell.cellID)
     }
     
-    static func configure(cell: UITableViewCell, by article: Article) {
+    //MARKS: - ConfigureCells
+    static func configure(cell: UITableViewCell, by article: Article)
+    {
         
         guard let cell    = cell as? RegularArticleCellTableViewCell else {return}
         let dateDelegate  = Date()

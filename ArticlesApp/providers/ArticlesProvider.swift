@@ -8,11 +8,13 @@
 
 import UIKit
 
-class ArticlesProvider  {
+class ArticlesProvider
+{
     
     typealias JsonObject = [String:Any]
     
-    static func getArticles(completion:@escaping (JsonObject)->()){
+    static func getArticles(completion:@escaping (JsonObject)->())
+    {
         
         let newsUrlAddress = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=7fa8f37f6a944ecfbb2ecc79cac8368d"
         
@@ -28,7 +30,8 @@ class ArticlesProvider  {
                 print(error)
                 return
             }
-            do{
+            do
+            {
                 guard let data = data else
                 {
                     print("no data from url")
@@ -37,7 +40,8 @@ class ArticlesProvider  {
                 guard let jsonObj = try JSONSerialization.jsonObject(with: data, options: []) as? JsonObject else{return}
                 completion(jsonObj)
                 
-            }catch let error as NSError
+            }
+            catch let error as NSError
             {
                 print(error.localizedDescription)
             }

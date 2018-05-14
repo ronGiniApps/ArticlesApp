@@ -12,12 +12,13 @@ import UIKit
 let shareNotificaition = "share_article"
 
 
-class ViewController: UIViewController{
+class ViewController: UIViewController
+{
 
     //MARK: - Outlets
-    @IBOutlet weak var tableView                : UITableView!
     @IBOutlet weak var activityIndicator        : UIActivityIndicatorView!
     @IBOutlet weak var menuLeadingConstraint    : NSLayoutConstraint!
+    @IBOutlet weak var tableView                : UITableView!
     @IBOutlet weak var rightMenu                : UIView!
     
     @IBAction func openCloseRightMenu(_ sender: UIBarButtonItem)
@@ -41,15 +42,18 @@ class ViewController: UIViewController{
     //MARK: - ViewWillLayoutSubviews
     override func viewWillLayoutSubviews() {
         
-        tableController         =   TableController(delegateToViewController: self)
-        tableView.delegate      =   tableController
-        tableView.dataSource    =   tableController
+        tableController                      =   TableController(delegateToViewController: self)
+        tableView.delegate                   =   tableController
+        tableView.dataSource                 =   tableController
     }
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(notificationShare), name: NSNotification.Name(rawValue: "shareArticle"), object: nil)
+        menuLeadingConstraint.constant       =   -rightMenu.frame.width
+
 
     }
     
@@ -61,24 +65,21 @@ class ViewController: UIViewController{
     
     @objc func notificationShare(_ notification: NSNotification) {
         
-        let sender              =   notification.userInfo!["button"] as? UIButton
-        let buttonPosition      =   sender!.convert(CGPoint.zero, to:self.tableView)
-        let indexPath           =   self.tableView.indexPathForRow(at: buttonPosition)
-        var row                 =   indexPath![1] + 1
+        let sender            =   notification.userInfo!["button"] as? UIButton
+        let buttonPosition    =   sender!.convert(CGPoint.zero, to:self.tableView)
+        let indexPath         =   self.tableView.indexPathForRow(at: buttonPosition)
+        var row               =   indexPath![1] + 1
         
         if row % 3 == 0
         {
             let cell  = tableView.cellForRow(at: indexPath!) as? StripArticleTableViewCell
-            print("third cell")
             share(url: (cell?.url)!)
-            
         }
         else
         {
             row       = row - (row/3)
             row      -= 1
             let cell  = tableView.cellForRow(at: indexPath!) as? RegularArticleCellTableViewCell
-            print("regular cell")
             share(url: (cell?.url)!)
         }
     }
@@ -136,6 +137,8 @@ extension ViewController
                 self.rightMenu.layer.shadowOpacity           = 0
                 self.rightMenu.layer.shadowRadius            = 0
                 self.view.layoutIfNeeded()
+                //self.tableView.isUserInteractionEnabled = true
+
             }
         }
         else
@@ -145,6 +148,7 @@ extension ViewController
                 self.rightMenu.layer.shadowOpacity           = 1
                 self.rightMenu.layer.shadowRadius            = 6
                 self.view.layoutIfNeeded()
+                //self.tableView.isUserInteractionEnabled = false
             }
         }
         isMenuOpen = !isMenuOpen

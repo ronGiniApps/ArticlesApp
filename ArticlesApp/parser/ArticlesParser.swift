@@ -10,8 +10,9 @@ import UIKit
 
 class ArticlesParser {
     
-    static func parseArticles(jsonObject:[String:Any],completion:@escaping ([Article])->()){
-        
+    //MARKS: - Parser
+    static func parseArticles(jsonObject:[String:Any],completion:@escaping ([Article])->())
+    {
         var myArticles = [Article]()
         var imageUrl   = ""
         var title      = ""
@@ -21,7 +22,8 @@ class ArticlesParser {
         var url        = ""
         var type       = ArticleDefine.ArticlesTypes.regularArticleCell
         
-        guard let articles = jsonObject["articles"] as? [[String:Any]] else {
+        guard let articles = jsonObject["articles"] as? [[String:Any]] else
+            {
             print("articles error")
             return
         }
@@ -35,16 +37,26 @@ class ArticlesParser {
                 date        = checkObjInJson(objKeyInJson: "publishedAt", objFromJson: article)
                 url         = checkObjInJson(objKeyInJson: "url", objFromJson: article)
                     
-                if row % 3 == 0 {
+                if row % 3 == 0
+                {
                     type = ArticleDefine.ArticlesTypes.everyThirdCell
-                }else{
+                }
+                else
+                {
                     row   = row - (row/3)
                     row  -= 1
-                    type = ArticleDefine.ArticlesTypes.regularArticleCell
+                    type  = ArticleDefine.ArticlesTypes.regularArticleCell
                     
                 }
                 
-                let myArticle = Article(imgUrl: imageUrl, title: title, subTitle: subTitle, author: author, date: date, url: url, type: type)
+                let myArticle = Article(
+                    imgUrl  : imageUrl,
+                    title   : title,
+                    subTitle: subTitle,
+                    author  : author,
+                    date    : date,
+                    url     : url,
+                    type    : type)
                 myArticles.append(myArticle)
             }
             completion(myArticles)
@@ -52,10 +64,14 @@ class ArticlesParser {
 
     
     //MARKS: - isObjectInJson
-    static func checkObjInJson(objKeyInJson:String,objFromJson:[String:Any])-> String{
-        if let obj = objFromJson[objKeyInJson] as? String{
+    static func checkObjInJson(objKeyInJson:String,objFromJson:[String:Any])-> String
+    {
+        if let obj = objFromJson[objKeyInJson] as? String
+        {
             return obj
-        }else{
+        }
+        else
+        {
             print("no",objKeyInJson)
             return ""
         }

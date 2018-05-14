@@ -8,18 +8,24 @@
 
 import UIKit
 
-class StripCellGenerator {
+class StripCellGenerator
+{
 
-    
-    static func cell(for indexPath: IndexPath, inTableVIew tableView: UITableView) -> UITableViewCell {
+    //MARKS: - CellForRow
+    static func cell(for indexPath: IndexPath, inTableVIew tableView: UITableView) -> UITableViewCell
+    {
         return tableView.dequeueReusableCell(withIdentifier:StripArticleTableViewCell.cellID , for:indexPath  )
     }
     
-    static func registerReuseIdentifier(for tableView: UITableView) {
+    //MARKS: - RegisterIdentifier
+    static func registerReuseIdentifier(for tableView: UITableView)
+    {
         tableView.register(StripArticleTableViewCell.cellNib, forCellReuseIdentifier: StripArticleTableViewCell.cellID)
     }
     
-    static func configure(cell: UITableViewCell, by article: Article) {
+    //MARKS: - ConfigureCells
+    static func configure(cell: UITableViewCell, by article: Article)
+    {
         
         guard let cell    = cell as? StripArticleTableViewCell else {return}
         let dateDelegate  = Date()

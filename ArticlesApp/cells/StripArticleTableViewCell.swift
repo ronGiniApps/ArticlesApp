@@ -8,7 +8,8 @@
 
 import UIKit
 
-class StripArticleTableViewCell: UITableViewCell {
+class StripArticleTableViewCell: UITableViewCell
+{
 
     //MARKS: - Outlets
     @IBOutlet weak var articleImage     : UIImageView!
@@ -16,29 +17,30 @@ class StripArticleTableViewCell: UITableViewCell {
     @IBOutlet weak var articleSubtitle  : UILabel!
     @IBOutlet weak var articleAuthor    : UILabel!
     @IBOutlet weak var articleDate      : UILabel!
-    @IBOutlet weak var cellView: UIView!
-    @IBOutlet weak var shareBtn: UIButton!
+    @IBOutlet weak var cellView         : UIView!
+    @IBOutlet weak var shareBtn         : UIButton!
     
-    var url =  ""
     
+    //MARKS: - Properties
     weak var delegate:ShareDelegate?
+    var url =  ""
 
-    @IBAction func shareArticleAction(_ sender: UIButton) {
+
+    @IBAction func shareArticleAction(_ sender: UIButton)
+    {
         NotificationCenter.default.post(name:  NSNotification.Name(rawValue: "shareArticle"), object: nil, userInfo: ["button" : sender])
     }
     
     
-    override func awakeFromNib() {
+    override func awakeFromNib()
+    {
         super.awakeFromNib()
-        // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool)
+    {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
-    
 }
 
 extension StripArticleTableViewCell:CellInfoable{}

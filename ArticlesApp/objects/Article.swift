@@ -8,7 +8,8 @@
 
 import UIKit
 
-struct Article {
+struct Article
+{
     var imgUrl   :String?
     var url      :String?
     var title    :String?
@@ -17,7 +18,8 @@ struct Article {
     var date     :String?
     var type     :ArticleDefine.ArticlesTypes
     
-    init (imgUrl:String,title:String,subTitle:String,author:String,date:String,url:String,type:ArticleDefine.ArticlesTypes){
+    init (imgUrl:String,title:String,subTitle:String,author:String,date:String,url:String,type:ArticleDefine.ArticlesTypes)
+    {
         self.imgUrl     = imgUrl
         self.title      = title
         self.subTitle   = subTitle

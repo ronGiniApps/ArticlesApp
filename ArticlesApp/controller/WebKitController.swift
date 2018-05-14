@@ -58,7 +58,8 @@ extension WebKitController:ArticleWebKitProtocol
     }
     
     //MARK: - didFinish
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!)
+    {
         activityIndicator.stopAnimating()
     }
 }

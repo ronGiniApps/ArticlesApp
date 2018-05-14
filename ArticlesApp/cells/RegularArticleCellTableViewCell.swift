@@ -16,31 +16,28 @@ class RegularArticleCellTableViewCell: UITableViewCell {
     @IBOutlet weak var articleSubTitle  : UILabel!
     @IBOutlet weak var articleAuthor    : UILabel!
     @IBOutlet weak var articleDate      : UILabel!
-    @IBOutlet weak var cellView: UIView!
-    @IBOutlet weak var shareBtn: UIButton!
+    @IBOutlet weak var cellView         : UIView!
+    @IBOutlet weak var shareBtn         : UIButton!
     
     
-    @IBAction func shareArticleAction(_ sender: UIButton) {
-        //NotificationCenter.default.post(name: NSNotification.Name(rawValue: "shareArticle"), object: nil,)
-        NotificationCenter.default.post(name:  NSNotification.Name(rawValue: "shareArticle"), object: nil, userInfo: ["button" : sender])
-        
+    @IBAction func shareArticleAction(_ sender: UIButton)
+    {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "shareArticle"), object: nil, userInfo: ["button" : sender])
     }
     
     //MARK: - Properties
-    var url = ""
-    
     weak var shareDelegate:ShareDelegate?
-    
+    var url = ""
+
    
-    override func awakeFromNib() {
+    override func awakeFromNib()
+    {
         super.awakeFromNib()
-        // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool)
+    {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }

@@ -38,7 +38,8 @@ extension DataController
 //MARK: - DataControllerProtocol
  extension DataController:DataControllerProtocol
  {
-    func didSelectRowAt(_ tablView: UITableView, indexPath: IndexPath) {
+    func didSelectRowAt(_ tablView: UITableView, indexPath: IndexPath)
+    {
         let url = newArticles?[indexPath.row].url
         delegate?.performSegue(withIdentifier: "webarticlesegue", sender: url)
     }
